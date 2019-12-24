@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "dev": "webpack --config='./configs/webpack.dev.js'"
+  }
+}
