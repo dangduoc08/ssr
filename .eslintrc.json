@@ -1,0 +1,108 @@
+{
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "arguments": true
+  },
+  "rules": {
+    "no-var": [ // Use let, const not var
+      2
+    ],
+    "quotes": [ // Use '' not "", ``
+      2,
+      "single"
+    ],
+    "no-unneeded-ternary": [ // Use const isGreater = 1 >= 2 not const isGreater = 1 >= 2 ? true : false
+      1
+    ],
+    "arrow-body-style": [ // Use () => 'test' not () => { return 'test' }
+      2,
+      "as-needed"
+    ],
+    "arrow-spacing": [ // Use () => 'test' not ()=>'test'
+      1,
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "prefer-const": [ // Use const test = 'test' not let test = 'test'
+      1
+    ],
+    "comma-dangle": [ // Use { thisIsTest: 'test' } not { this_is_test: 'test', }
+      1
+    ],
+    "semi": [ // Use const test = 'test' not const test = 'test';
+      2,
+      "never"
+    ],
+    "no-dupe-keys": [ // No { test: 'abc', test: 'xyz' }
+      2
+    ],
+    "eqeqeq": [ // Use === not ==
+      2,
+      "always"
+    ],
+    "no-console": [ // No console
+      1
+    ],
+    "block-spacing": [ // Use function test() { return true } not function test(){return true}
+      2
+    ],
+    "comma-spacing": [ // Use { a: 'a', b: 'b' } not { a: 'a' ,b: 'b' }
+      2,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ],
+    "no-duplicate-imports": [
+      "warn",
+      {
+        "includeExports": true
+      }
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "camelcase": [
+      "warn",
+      {
+        "allow": [
+          "^UNSAFE_"
+        ],
+        "properties": "never"
+      }
+    ],
+    "no-undef": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
