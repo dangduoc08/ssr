@@ -1,3 +1,5 @@
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
@@ -22,7 +24,7 @@ module.exports = {
         test: /\.(css|scss)$/i,
         use: [
           {
-            loader: 'style-loader'
+            loader: MiniCSSExtractPlugin.loader
           },
           {
             loader: 'css-loader'
@@ -45,5 +47,11 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCSSExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
+  ]
 }
