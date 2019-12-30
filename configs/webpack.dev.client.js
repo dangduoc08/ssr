@@ -5,7 +5,7 @@ const baseConfig = require('./webpack.dev.base')
 
 const clientConfig = {
   entry: {
-    client: [
+    main: [
       'regenerator-runtime/runtime',
       'core-js/stable',
       './client'
@@ -25,9 +25,8 @@ const clientConfig = {
     new HtmlWebpackPlugin({
       template: './client/index.ejs',
       filename: 'index.ejs',
-      dom: '<%- app  %>',
-      initialState: '<%- initialState %>',
-      minify: false
+      app: '<%- app  %>',
+      initialState: '<%- initialState %>'
     })
   ]
 }

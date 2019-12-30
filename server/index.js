@@ -13,7 +13,7 @@ import rootSaga from '../client/saga'
 import { layoutRoutes } from '../client/routers'
 
 const server = express()
-
+server.use(express.static('statics'))
 server.use(express.static('views'))
 server.set('view engine', 'ejs')
 
@@ -22,26 +22,31 @@ const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 
 server.get('*', async (req, res) => {
+  console.log(matchRoutes(layoutRoutes, req.path))
   const routes = matchRoutes(layoutRoutes, req.path)[0]
-  const app = ReactDOMServer.renderToString(
-    <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
-        <App />
-      </StaticRouter>
-    </Provider>
-  )
-
   if (routes) {
-    const { serveData } = routes.route.component
-    if (serveData) {
-      serveData(store.dispatch, () => {
+    const { componentGetReadyToMount } = routes.route.component
+    if (componentGetReadyToMount) {
+      componentGetReadyToMount(store.dispatch, () => {
+        const app = ReactDOMServer.renderToString(
+          <Provider store={store}>
+            <StaticRouter location={req.path} context={{}}>
+              <App />
+            </StaticRouter>
+          </Provider>
+        )
         res.render('index', { app, initialState: serialize(store.getState()) })
       })
     } else {
-      res.render('index', { app, initialState: serialize({}) })
+      const app = ReactDOMServer.renderToString(
+        <Provider store={store}>
+          <StaticRouter location={req.path} context={{}}>
+            <App />
+          </StaticRouter>
+        </Provider>
+      )
+      res.render('index', { app, initialState: serialize(store.getState()) })
     }
-  } else {
-    res.render('index', { app, initialState: serialize({}) })
   }
 })
 

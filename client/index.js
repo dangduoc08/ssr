@@ -10,7 +10,7 @@ import rootSaga from './saga'
 import './index.scss'
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(rootReducer, {}, applyMiddleware(sagaMiddleware))
+const store = createStore(rootReducer, window.INITIAL_STATE, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 
 ReactDOM.hydrate(

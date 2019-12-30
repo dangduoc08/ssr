@@ -13,7 +13,7 @@ const serverConfig = {
     ]
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../server_build')
   },
   externals: [nodeExternals()]

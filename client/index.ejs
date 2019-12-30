@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="favicon.ico" />
@@ -11,14 +10,8 @@
   <link rel="apple-touch-icon" href="images/192x192.png" />
   <title></title>
 </head>
-
 <body>
-  <div id="root">
-    <%= htmlWebpackPlugin.options.dom %>
-  </div>
-  <script>
-    window.INITIAL_STATE=<%= htmlWebpackPlugin.options.initialState %>
-  </script>
+  <div id="root"><%= htmlWebpackPlugin.options.app %></div>
+  <script> window.INITIAL_STATE=<%= htmlWebpackPlugin.options.initialState %></script>
 </body>
-
 </html>

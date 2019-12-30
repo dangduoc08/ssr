@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import logo from '../../assets/logo.svg'
 import { fetchFlagsRequest } from '../../redux/actions'
 class Home extends React.Component {
-  static serveData(dispatch, cb) {
+  static componentGetReadyToMount(dispatch, cb) {
     dispatch(fetchFlagsRequest(cb))
   }
 

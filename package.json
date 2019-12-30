@@ -4,7 +4,7 @@
     "clean": "rimraf *_build",
     "start:dev-server": "webpack --watch --config=./configs/webpack.dev.server.js",
     "start:dev-client": "webpack --watch --config=./configs/webpack.dev.client.js",
-    "start:dev": "nodemon server_build/server.bundle.js",
+    "start:dev": "nodemon server_build/server.js",
     "dev": "npm-run-all --parallel start:dev*"
   },
   "dependencies": {
