@@ -8,8 +8,8 @@ import createSagaMiddleware from 'redux-saga'
 import { matchRoutes } from 'react-router-config'
 import serialize from 'serialize-javascript'
 import App from '../client/containers/App'
-import rootReducer from '../client/redux'
-import rootSaga from '../client/saga'
+import rootReducer from '../client/reducers'
+import rootSaga from '../client/sagas'
 import { layoutRoutes } from '../client/routers'
 
 const server = express()

@@ -1,0 +1,8 @@
+@import "../abstracts/variables";
+
+.products {
+  @extend .flex, .flex--left, .flex--middle;
+  &__list {
+    color: #fff;
+  }
+}
