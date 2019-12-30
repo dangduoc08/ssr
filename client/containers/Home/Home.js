@@ -11,7 +11,7 @@ class Home extends React.Component {
   componentDidMount() {
     this.props.fetchFlagsRequest()
   }
-  
+
   render() {
     return (
       <div className='home'>
@@ -29,11 +29,6 @@ class Home extends React.Component {
             Learn React
           </a>
         </header>
-        <div style={{ color: '#fff' }}>
-          {this.props.user.map(user =>
-            <p key={user.id}>{user.name}</p>
-          ) }
-        </div>
       </div>
     )
   }
