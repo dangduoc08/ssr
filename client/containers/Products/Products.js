@@ -10,9 +10,9 @@ class Products extends Component {
 
   componentDidMount() {
     const {
-      getProductsRequest
+      dispatch
     } = this.props
-    getProductsRequest()
+    Products.componentGetReadyToMount(dispatch)
   }
 
   render() {
@@ -33,7 +33,7 @@ class Products extends Component {
 
 Products.propTypes = {
   products: PropTypes.array,
-  getProductsRequest: PropTypes.func
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -44,8 +44,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getProductsRequest: callback =>
-    dispatch(actions.getProductsRequest(callback))
+  dispatch
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products)

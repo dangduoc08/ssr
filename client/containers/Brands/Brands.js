@@ -10,9 +10,9 @@ class Brands extends Component {
 
   componentDidMount() {
     const {
-      getBrandsRequest
+      dispatch
     } = this.props
-    getBrandsRequest()
+    Brands.componentGetReadyToMount(dispatch)
   }
 
   render() {
@@ -33,7 +33,8 @@ class Brands extends Component {
 
 Brands.propTypes = {
   brands: PropTypes.array,
-  getBrandsRequest: PropTypes.func
+  getBrandsRequest: PropTypes.func,
+  dispatch: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -44,8 +45,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  getBrandsRequest: callback =>
-    dispatch(actions.getBrandsRequest(callback))
+  dispatch
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Brands)
