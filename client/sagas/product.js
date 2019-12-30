@@ -16,6 +16,5 @@ function* getProductsRequest({ callback }) {
     if (callback) callback()
   } catch (error) {
     yield put(actions.getProductsFailure(error))
-    alert(error.message)
   }
 }

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import actions from '../../actions'
 
 class Products extends Component {
-
   static componentGetReadyToMount(dispatch, callback) {
     dispatch(actions.getProductsRequest(callback))
   }
@@ -21,7 +20,10 @@ class Products extends Component {
       <div className='products'>
         <ul className='products__list'>
           {this.props.products.map(product =>
-            <li key={product.id}>{product.name}</li>
+            <li key={product.id}>
+              {product.name}
+              <img src={product.image} />
+            </li>
           )}
         </ul>
       </div>
